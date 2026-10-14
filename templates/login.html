@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saba's Love Arcade 💗</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <div class="pixel-heart" aria-hidden="true">♥</div>
+    <p class="eyebrow">A tiny world for one person</p>
+    <h1>Saba's Love Arcade</h1>
+    <p class="subtitle">pssst... this little arcade belongs to someone special.</p>
+    {% if error %}<p class="notice" role="alert">{{ error }}</p>{% endif %}
+    <form method="post" action="{{ url_for('login') }}">
+      <label for="password">Secret password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button class="button primary" type="submit">Unlock my little world ♡</button>
+    </form>
+    <p class="tiny-note">hint: only you know it (hopefully)</p>
+  </main>
+</body>
+</html>
