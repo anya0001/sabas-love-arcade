@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saba's Love Arcade 💗</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='prizes.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='game.js') }}"></script>
+</head>
+<body>
+  <main class="arcade-shell">
+    <header class="topbar">
+      <div><p class="eyebrow">PLAYER ONE: SABA</p><h1>Saba's Love Arcade <span>♥</span></h1></div>
+      <form method="post" action="{{ url_for('logout') }}"><button class="button quiet" type="submit">Lock arcade</button></form>
+    </header>
+    <p class="subtitle">move the claw, pick a little treasure, and see what you win ✧</p>
+    <section class="machine" aria-label="Claw machine game">
+      <div class="machine-header"><span>♥ LOVE-O-MATIC ♥</span><span class="machine-lights">● ● ●</span></div>
+      <div class="machine-window" id="machine-window">
+        <div class="rail"></div>
+        <div class="claw-track" id="claw-track"><div class="claw-string"></div><div class="claw">♧</div></div>
+        <div class="prize-pit" id="prize-pit" aria-label="Prize toys"></div>
+        <div class="glass-shine"></div>
+      </div>
+      <div class="machine-base">
+        <div class="screen-label">PRIZES WON <strong id="prize-count">0</strong></div>
+        <div class="controls">
+          <button class="button move" id="move-left" type="button" aria-label="Move claw left">◀ LEFT</button>
+          <button class="button grab" id="grab-button" type="button">GRAB! ♡</button>
+          <button class="button move" id="move-right" type="button" aria-label="Move claw right">RIGHT ▶</button>
+        </div>
+        <p class="keyboard-hint">computer: ← → and SPACE · phone: tap the buttons</p>
+      </div>
+    </section>
+    <section class="collection-panel">
+      <div><p class="eyebrow">YOUR LITTLE TREASURE BOX</p><h2>Collected prizes <span id="collection-count">(0)</span></h2></div>
+      <div id="collection" class="collection" aria-live="polite"><p class="empty-state">your treasures will appear here ✿</p></div>
+    </section>
+  </main>
+  <dialog id="prize-dialog" class="prize-dialog">
+    <button class="dialog-close" id="close-dialog" aria-label="Close prize">×</button>
+    <p class="eyebrow" id="prize-rarity">A LITTLE TREASURE</p>
+    <div class="reward-emoji" id="reward-emoji">💗</div>
+    <h2 id="reward-name">You won!</h2>
+    <p id="reward-message"></p>
+    <button class="button primary" id="play-again" type="button">one more try? ♡</button>
+  </dialog>
+</body>
+</html>
